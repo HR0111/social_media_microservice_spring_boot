@@ -1,0 +1,11 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: ${spring.application.name} # Application name is used as the consumer group ID
+      key-deserializer: org.apache.kafka.common.serialization.LongDeserializer # Assuming key is a String, change it if needed
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer # Specify a custom deserializer for value
+      properties:
+        spring.json:
+          trusted.packages: org.hemant.linkedin.*
+#          value.default.type: com.notification.dto.PostLikedEvent

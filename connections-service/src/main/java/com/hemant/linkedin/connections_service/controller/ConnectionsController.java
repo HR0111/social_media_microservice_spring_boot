@@ -5,6 +5,7 @@ import com.hemant.linkedin.connections_service.entity.Person;
 import com.hemant.linkedin.connections_service.repository.PersonRepository;
 import com.hemant.linkedin.connections_service.service.ConnectionsService;
 import lombok.RequiredArgsConstructor;
+import org.hemant.linkedin.posts_service.DTO.PersonDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,23 @@ public class ConnectionsController {
     public ResponseEntity<List<Person>> getFirstDegreeConnections(){
 
         return ResponseEntity.ok(connectionsService.getFirstDegreeConnections());
+    }
+
+
+    @PostMapping("/request/{userId}")
+    public ResponseEntity<Boolean> sendConnectionRequest(@PathVariable Long userId){
+        return ResponseEntity.ok(connectionsService.sendConnectionRequest(userId));
+    }
+
+    @PostMapping("/accept/{userId}")
+    public ResponseEntity<Boolean> acceptConnectionRequest(@PathVariable Long userId){
+        return ResponseEntity.ok(connectionsService.acceptConnectionRequest(userId));
+    }
+
+
+    @PostMapping("/reject/{userId}")
+    public ResponseEntity<Boolean> rejectConnectionRequest(@PathVariable Long userId){
+        return ResponseEntity.ok(connectionsService.rejectConnectionRequest(userId));
     }
 
 

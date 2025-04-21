@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/codingShuttle.iml" filepath="$PROJECT_DIR$/.idea/codingShuttle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-gateway/notification-service/notification-service (1) (org.hemant.linkedin).iml" filepath="$PROJECT_DIR$/api-gateway/notification-service/notification-service (1) (org.hemant.linkedin).iml" />
       <module fileurl="file://$PROJECT_DIR$/posts-service/posts-service.iml" filepath="$PROJECT_DIR$/posts-service/posts-service.iml" />
     </modules>
   </component>
