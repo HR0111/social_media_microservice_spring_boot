@@ -7,7 +7,8 @@ jwt.secretKey: da654as68a5341d3aw9defsdfdsfasdsad5fc4sd55scsdcsd54f54as4d3a
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://discovery-server:8761/eureka
+
   instance:
     prefer-ip-address: true
     ip-address: 127.0.0.1

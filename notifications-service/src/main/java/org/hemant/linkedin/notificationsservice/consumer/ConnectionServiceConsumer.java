@@ -19,6 +19,8 @@ public class ConnectionServiceConsumer {
     @KafkaListener(topics = "send-connection-request-topic")
     public void handleSendConnectionRequest(SendConnectionRequestEvent sendConnectionRequestEvent){
 
+        log.info("Received connection request from handleSendConnectionRequest: {}", sendConnectionRequestEvent);
+
         String message = "You have received a new connection request with id : %id"+sendConnectionRequestEvent.getSenderId();
         sendNotificationService.sendNotification(sendConnectionRequestEvent.getReceiverId(), message);
 
@@ -26,6 +28,9 @@ public class ConnectionServiceConsumer {
 
     @KafkaListener(topics = "accept-connection-request-topic")
     public void handleAcceptConnectionRequest(AcceptConnectionRequestEvent acceptConnectionRequestEvent){
+
+        log.info("Received connection request from handleAcceptConnectionRequest: {}", acceptConnectionRequestEvent);
+
 
         String message = "Your Connection request has been accepted by the user  with id : %id"+acceptConnectionRequestEvent.getReceiverId();
         sendNotificationService.sendNotification(acceptConnectionRequestEvent.getSenderId(), message);
