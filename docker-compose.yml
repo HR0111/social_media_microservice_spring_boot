@@ -19,6 +19,25 @@ services:
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
 
+
+  notification-db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=notificationDB
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+    networks:
+      - linkedin-network
+    volumes:
+      - notification-db-data:/var/lib/postgresql/data
+
+
+  notification-service:
+    image: rhemant0111/linkedin-app/notifications-service
+    container_name: notification-service
+    networks:
+      - linkedin-network
+
 networks:
   linkedin-network:
 
